@@ -1,6 +1,6 @@
 /*
  * Copyright (C) 2003, 2004 Jason Bevins (original libnoise code)
- * Copyright © 2010 Thomas J. Hodge (java port of libnoise)
+ * Copyright (C) 2010 Thomas J. Hodge (java port of libnoise)
  * 
  * This file is part of libnoiseforjava.
  * 
@@ -25,7 +25,7 @@
 
 package libnoiseforjava.exception;
 
-public class ExceptionInvalidParam extends Exception
+public class ExceptionInvalidParam extends IllegalArgumentException
 {
 
    /**
