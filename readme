@@ -6,3 +6,4 @@ Some cleanups to the libnoiseforjava project, including:
 - ExceptionInvalidParam now extends IllegalArgumentException
 - ExceptionNoModule now extends IllegalStateException
 - ModuleBase is now abstract
+- Converted to javadoc format somewhat (It's not great but it works)
