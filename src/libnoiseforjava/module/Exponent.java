@@ -29,21 +29,27 @@ import libnoiseforjava.exception.ExceptionInvalidParam;
 
 public class Exponent extends ModuleBase
 {
-   /// Noise module that maps the output value from a source module onto an
-   /// exponential curve.
-   ///
-   /// Because most noise modules will output values that range from -1.0 to
-   /// +1.0, this noise module first normalizes this output value (the range
-   /// becomes 0.0 to 1.0), maps that value onto an exponential curve, then
-   /// rescales that value back to the original range.
-   ///
-   /// This noise module requires one source module.
+   /**
+    *  Noise module that maps the output value from a source module onto an
+    *  exponential curve.
+    * 
+    *  Because most noise modules will output values that range from -1.0 to
+    *  +1.0, this noise module first normalizes this output value (the range
+    *  becomes 0.0 to 1.0), maps that value onto an exponential curve, then
+    *  rescales that value back to the original range.
+    * 
+    *  This noise module requires one source module.
+    **/
 
-   /// Default exponent for the Exponent noise module.
+   /**
+    *  Default exponent for the Exponent noise module.
+    **/
    static final double DEFAULT_EXPONENT = 1.0;
 
 
-   /// Exponent to apply to the output value from the source module.
+   /**
+    *  Exponent to apply to the output value from the source module.
+    **/
    double exponent;
 
    public Exponent (ModuleBase sourceModule) throws ExceptionInvalidParam
@@ -62,10 +68,12 @@ public class Exponent extends ModuleBase
       return (Math.pow (Math.abs ((value + 1.0) / 2.0), exponent) * 2.0 - 1.0);
    }
 
-   /// Returns the exponent value to apply to the output value from the
-   /// source module.
-   ///
-   /// @returns The exponent value.
+   /**
+    *  Returns the exponent value to apply to the output value from the
+    *  source module.
+    * 
+    *  @return The exponent value.
+    **/
    public double getExponent ()
    {
       return exponent;

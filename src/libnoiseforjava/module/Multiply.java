@@ -29,12 +29,14 @@ import libnoiseforjava.exception.ExceptionInvalidParam;
 
 public class Multiply extends ModuleBase
 {
-   /// Noise module that outputs the product of the two output values from
-   /// two source modules.
-   ///
-   /// @image html modulemultiply.png
-   ///
-   /// This noise module requires two source modules.
+   /**
+    *  Noise module that outputs the product of the two output values from
+    *  two source modules.
+    * 
+    *  @image html modulemultiply.png
+    * 
+    *  This noise module requires two source modules.
+    **/
    
    public Multiply (ModuleBase sourceModuleOne, ModuleBase sourceModuleTwo) throws ExceptionInvalidParam
    {

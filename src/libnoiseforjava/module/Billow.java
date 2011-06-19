@@ -30,41 +30,57 @@ import libnoiseforjava.NoiseGen.NoiseQuality;
 
 public class Billow extends ModuleBase
 {
-   /// Noise module that outputs three-dimensional "billowy" noise.
-   ///
-   /// @image html modulebillow.png
-   ///
-   /// This noise module generates "billowy" noise suitable for clouds and
-   /// rocks.
-   ///
-   /// This noise module is nearly identical to noise::module::Perlin except
-   /// this noise module modifies each octave with an absolute-value
-   /// function.  See the documentation of noise::module::Perlin for more
-   /// information.
+   /**
+    *  Noise module that outputs three-dimensional "billowy" noise.
+    * 
+    *  @image html modulebillow.png
+    * 
+    *  This noise module generates "billowy" noise suitable for clouds and
+    *  rocks.
+    * 
+    *  This noise module is nearly identical to noise::module::Perlin except
+    *  this noise module modifies each octave with an absolute-value
+    *  function.  See the documentation of noise::module::Perlin for more
+    *  information.
+    **/
 
 
-   /// Default frequency for the Billow noise module.
+   /**
+    *  Default frequency for the Billow noise module.
+    **/
    static final double DEFAULT_BILLOW_FREQUENCY = 1.0;
 
-   /// Default lacunarity for the Billow noise module.
+   /**
+    *  Default lacunarity for the Billow noise module.
+    **/
    static final double DEFAULT_BILLOW_LACUNARITY = 2.0;
 
-   /// Default number of octaves for the the noise::module::Billow noise
-   /// module.
+   /**
+    *  Default number of octaves for the the noise::module::Billow noise
+    *  module.
+    **/
    static final int DEFAULT_BILLOW_OCTAVE_COUNT = 6;
 
-   /// Default persistence value for the the noise::module::Billow noise
-   /// module.
+   /**
+    *  Default persistence value for the the noise::module::Billow noise
+    *  module.
+    **/
    static final double DEFAULT_BILLOW_PERSISTENCE = 0.5;
 
-   /// Default noise quality for the the noise::module::Billow noise module.
+   /**
+    *  Default noise quality for the the noise::module::Billow noise module.
+    **/
    static final NoiseQuality DEFAULT_BILLOW_QUALITY = NoiseQuality.QUALITY_STD;
 
-   /// Default noise seed for the the noise::module::Billow noise module.
+   /**
+    *  Default noise seed for the the noise::module::Billow noise module.
+    **/
    static final int DEFAULT_BILLOW_SEED = 0;
 
-   /// Maximum number of octaves for the the noise::module::Billow noise
-   /// module.
+   /**
+    *  Maximum number of octaves for the the noise::module::Billow noise
+    *  module.
+    **/
    static final int BILLOW_MAX_OCTAVE = 30;
 
    double frequency, lacunarity, persistence;

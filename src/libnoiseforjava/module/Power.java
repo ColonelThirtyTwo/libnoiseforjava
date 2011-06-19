@@ -29,14 +29,16 @@ import libnoiseforjava.exception.ExceptionInvalidParam;
 
 public class Power extends ModuleBase
 {
-   /// Noise module that raises the output value from a first source module
-   /// to the power of the output value from a second source module.
-   ///
-   /// The first source module must have an index value of 0.
-   ///
-   /// The second source module must have an index value of 1.
-   ///
-   /// This noise module requires two source modules.
+   /**
+    *  Noise module that raises the output value from a first source module
+    *  to the power of the output value from a second source module.
+    * 
+    *  The first source module must have an index value of 0.
+    * 
+    *  The second source module must have an index value of 1.
+    * 
+    *  This noise module requires two source modules.
+    **/
 
    public Power (ModuleBase sourceModuleOne, ModuleBase sourceModuleTwo) throws ExceptionInvalidParam
    {

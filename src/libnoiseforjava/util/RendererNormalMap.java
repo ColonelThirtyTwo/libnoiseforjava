@@ -29,42 +29,52 @@ import libnoiseforjava.exception.ExceptionInvalidParam;
 
 public class RendererNormalMap
 {
-   /// Renders a normal map from a noise map.
-   ///
-   /// This class renders an image containing the normal vectors from a noise
-   /// map object.  This image can then be used as a bump map for a 3D
-   /// application or game.
-   ///
-   /// This class encodes the (x, y, z) components of the normal vector into
-   /// the (red, green, blue) channels of the image.  Like any 24-bit
-   /// true-color image, the channel values range from 0 to 255.  0
-   /// represents a normal coordinate of -1.0 and 255 represents a normal
-   /// coordinate of +1.0.
-   ///
-   /// You should also specify the <i>bump height</i> before rendering the
-   /// normal map.  The bump height specifies the ratio of spatial resolution
-   /// to elevation resolution.  For example, if your noise map has a spatial
-   /// resolution of 30 meters and an elevation resolution of one meter, set
-   /// the bump height to 1.0 / 30.0.
-   ///
-   /// <b>Rendering the normal map</b>
-   ///
-   /// To render the image containing the normal map, perform the following
-   /// steps:
-   /// - Pass a NoiseMap object to the setSourceNoiseMap() method.
-   /// - Pass an ImageCafe object to the setDestImage() method.
-   /// - Call the render() method.
+   /**
+    *  Renders a normal map from a noise map.
+    * 
+    *  This class renders an image containing the normal vectors from a noise
+    *  map object.  This image can then be used as a bump map for a 3D
+    *  application or game.
+    * 
+    *  This class encodes the (x, y, z) components of the normal vector into
+    *  the (red, green, blue) channels of the image.  Like any 24-bit
+    *  true-color image, the channel values range from 0 to 255.  0
+    *  represents a normal coordinate of -1.0 and 255 represents a normal
+    *  coordinate of +1.0.
+    * 
+    *  You should also specify the <i>bump height</i> before rendering the
+    *  normal map.  The bump height specifies the ratio of spatial resolution
+    *  to elevation resolution.  For example, if your noise map has a spatial
+    *  resolution of 30 meters and an elevation resolution of one meter, set
+    *  the bump height to 1.0 / 30.0.
+    * 
+    *  <b>Rendering the normal map</b>
+    * 
+    *  To render the image containing the normal map, perform the following
+    *  steps:
+    *  - Pass a NoiseMap object to the setSourceNoiseMap() method.
+    *  - Pass an ImageCafe object to the setDestImage() method.
+    *  - Call the render() method.
+    **/
 
-   /// The bump height for the normal map.
+   /**
+    *  The bump height for the normal map.
+    **/
    double bumpHeight;
 
-   /// A flag specifying whether wrapping is enabled.
+   /**
+    *  A flag specifying whether wrapping is enabled.
+    **/
    boolean isWrapEnabled;
 
-   /// A pointer to the destination image.
+   /**
+    *  A pointer to the destination image.
+    **/
    ImageCafe destImageCafe;
 
-   /// A pointer to the source noise map.
+   /**
+    *  A pointer to the source noise map.
+    **/
    NoiseMap sourceNoiseMap;
 
 
@@ -84,27 +94,29 @@ public class RendererNormalMap
       sourceNoiseMap = new NoiseMap(height, width);
    }
 
-   /// Calculates the normal vector at a given point on the noise map.
-   ///
-   /// @param nc The height of the given point in the noise map.
-   /// @param nr The height of the left neighbor.
-   /// @param nu The height of the up neighbor.
-   /// @param bumpHeight The bump height.
-   ///
-   /// @returns The normal vector represented as a color.
-   ///
-   /// This method encodes the (x, y, z) components of the normal vector
-   /// into the (red, green, blue) channels of the returned color.  In
-   /// order to represent the vector as a color, each coordinate of the
-   /// normal is mapped from the -1.0 to 1.0 range to the 0 to 255 range.
-   ///
-   /// The bump height specifies the ratio of spatial resolution to
-   /// elevation resolution.  For example, if your noise map has a
-   /// spatial resolution of 30 meters and an elevation resolution of one
-   /// meter, set the bump height to 1.0 / 30.0.
-   /// 
-   /// The spatial resolution and elevation resolution are determined by
-   /// the application.
+   /**
+    *  Calculates the normal vector at a given point on the noise map.
+    * 
+    *  @param nc The height of the given point in the noise map.
+    *  @param nr The height of the left neighbor.
+    *  @param nu The height of the up neighbor.
+    *  @param bumpHeight The bump height.
+    * 
+    *  @return The normal vector represented as a color.
+    * 
+    *  This method encodes the (x, y, z) components of the normal vector
+    *  into the (red, green, blue) channels of the returned color.  In
+    *  order to represent the vector as a color, each coordinate of the
+    *  normal is mapped from the -1.0 to 1.0 range to the 0 to 255 range.
+    * 
+    *  The bump height specifies the ratio of spatial resolution to
+    *  elevation resolution.  For example, if your noise map has a
+    *  spatial resolution of 30 meters and an elevation resolution of one
+    *  meter, set the bump height to 1.0 / 30.0.
+    *  
+    *  The spatial resolution and elevation resolution are determined by
+    *  the application.
+    **/
    public ColorCafe calcNormalColor (double nc, double nr, double nu,
          double bumpHeight)
    {
@@ -132,14 +144,16 @@ public class RendererNormalMap
       return new ColorCafe (xc, yc, zc, 255);
    }
 
-   /// Renders the noise map to the destination image.
-   ///
-   /// @pre setSourceNoiseMap() has been previously called.
-   /// @pre setDestImage() has been previously called.
-   ///
-   /// @post The original contents of the destination image is destroyed.
-   ///
-   /// @throw ExceptionInvalidParam See the preconditions.
+   /**
+    *  Renders the noise map to the destination image.
+    * 
+    *  @pre setSourceNoiseMap() has been previously called.
+    *  @pre setDestImage() has been previously called.
+    * 
+    *  @post The original contents of the destination image is destroyed.
+    * 
+    *  @throw ExceptionInvalidParam See the preconditions.
+    **/
    public void render () throws ExceptionInvalidParam
    {
       if ( sourceNoiseMap == null
@@ -201,98 +215,110 @@ public class RendererNormalMap
       }
    }
 
-   /// Enables or disables noise-map wrapping.
-   ///
-   /// @param enable A flag that enables or disables noise-map wrapping.
-   ///
-   /// This object requires three points (the initial point and the right
-   /// and up neighbors) to calculate the normal vector at that point.
-   /// If wrapping is/ enabled, and the initial point is on the edge of
-   /// the noise map, the appropriate neighbors that lie outside of the
-   /// noise map will "wrap" to the opposite side(s) of the noise map.
-   /// Otherwise, the appropriate neighbors are cropped to the edge of
-   /// the noise map.
-   ///
-   /// Enabling wrapping is useful when creating spherical and tileable
-   /// normal maps.
+   /**
+    *  Enables or disables noise-map wrapping.
+    * 
+    *  @param enable A flag that enables or disables noise-map wrapping.
+    * 
+    *  This object requires three points (the initial point and the right
+    *  and up neighbors) to calculate the normal vector at that point.
+    *  If wrapping is/ enabled, and the initial point is on the edge of
+    *  the noise map, the appropriate neighbors that lie outside of the
+    *  noise map will "wrap" to the opposite side(s) of the noise map.
+    *  Otherwise, the appropriate neighbors are cropped to the edge of
+    *  the noise map.
+    * 
+    *  Enabling wrapping is useful when creating spherical and tileable
+    *  normal maps.
+    **/
    public void enableWrap (boolean enable)
    {
       isWrapEnabled = enable;
    }
 
-   /// Returns the bump height.
-   ///
-   /// @returns The bump height.
-   ///
-   /// The bump height specifies the ratio of spatial resolution to
-   /// elevation resolution.  For example, if your noise map has a
-   /// spatial resolution of 30 meters and an elevation resolution of one
-   /// meter, set the bump height to 1.0 / 30.0.
-   ///
-   /// The spatial resolution and elevation resolution are determined by
-   /// the application.
+   /**
+    *  Returns the bump height.
+    * 
+    *  @return The bump height.
+    * 
+    *  The bump height specifies the ratio of spatial resolution to
+    *  elevation resolution.  For example, if your noise map has a
+    *  spatial resolution of 30 meters and an elevation resolution of one
+    *  meter, set the bump height to 1.0 / 30.0.
+    * 
+    *  The spatial resolution and elevation resolution are determined by
+    *  the application.
+    **/
    public double getBumpHeight ()
    {
       return bumpHeight;
    }
 
-   /// Determines if noise-map wrapping is enabled.
-   ///
-   /// @returns
-   /// - @a true if noise-map wrapping is enabled.
-   /// - @a false if noise-map wrapping is disabled.
-   ///
-   /// This object requires three points (the initial point and the right
-   /// and up neighbors) to calculate the normal vector at that point.
-   /// If wrapping is/ enabled, and the initial point is on the edge of
-   /// the noise map, the appropriate neighbors that lie outside of the
-   /// noise map will "wrap" to the opposite side(s) of the noise map.
-   /// Otherwise, the appropriate neighbors are cropped to the edge of
-   /// the noise map.
-   ///
-   /// Enabling wrapping is useful when creating spherical and tileable
-   /// normal maps.
+   /**
+    *  Determines if noise-map wrapping is enabled.
+    * 
+    *  @return
+    *  - @a true if noise-map wrapping is enabled.
+    *  - @a false if noise-map wrapping is disabled.
+    * 
+    *  This object requires three points (the initial point and the right
+    *  and up neighbors) to calculate the normal vector at that point.
+    *  If wrapping is/ enabled, and the initial point is on the edge of
+    *  the noise map, the appropriate neighbors that lie outside of the
+    *  noise map will "wrap" to the opposite side(s) of the noise map.
+    *  Otherwise, the appropriate neighbors are cropped to the edge of
+    *  the noise map.
+    * 
+    *  Enabling wrapping is useful when creating spherical and tileable
+    *  normal maps.
+    **/
    public boolean isWrapEnabled ()
    {
       return isWrapEnabled;
    }
 
-   /// Sets the bump height.
-   ///
-   /// @param bumpHeight The bump height.
-   ///
-   /// The bump height specifies the ratio of spatial resolution to
-   /// elevation resolution.  For example, if your noise map has a
-   /// spatial resolution of 30 meters and an elevation resolution of one
-   /// meter, set the bump height to 1.0 / 30.0.
-   ///
-   /// The spatial resolution and elevation resolution are determined by
-   /// the application.
+   /**
+    *  Sets the bump height.
+    * 
+    *  @param bumpHeight The bump height.
+    * 
+    *  The bump height specifies the ratio of spatial resolution to
+    *  elevation resolution.  For example, if your noise map has a
+    *  spatial resolution of 30 meters and an elevation resolution of one
+    *  meter, set the bump height to 1.0 / 30.0.
+    * 
+    *  The spatial resolution and elevation resolution are determined by
+    *  the application.
+    **/
    public void setBumpHeight (double bumpHeight)
    {
       this.bumpHeight = bumpHeight;
    }
 
-   /// Sets the destination image.
-   ///
-   /// @param destImage The destination image.
-   ///
-   /// The destination image will contain the normal map after a
-   /// successful call to the render() method.
-   ///
-   /// The destination image must exist throughout the lifetime of this
-   /// object unless another image replaces that image.
+   /**
+    *  Sets the destination image.
+    * 
+    *  @param destImage The destination image.
+    * 
+    *  The destination image will contain the normal map after a
+    *  successful call to the render() method.
+    * 
+    *  The destination image must exist throughout the lifetime of this
+    *  object unless another image replaces that image.
+    **/
    public void setDestImage (ImageCafe destImage)
    {
       this.destImageCafe = destImage;
    }
 
-   /// Sets the source noise map.
-   ///
-   /// @param sourceNoiseMap The source noise map.
-   ///
-   /// The destination image must exist throughout the lifetime of this
-   /// object unless another image replaces that image.
+   /**
+    *  Sets the source noise map.
+    * 
+    *  @param sourceNoiseMap The source noise map.
+    * 
+    *  The destination image must exist throughout the lifetime of this
+    *  object unless another image replaces that image.
+    **/
    public void setSourceNoiseMap (NoiseMap sourceNoiseMap)
    {
       this.sourceNoiseMap = sourceNoiseMap;

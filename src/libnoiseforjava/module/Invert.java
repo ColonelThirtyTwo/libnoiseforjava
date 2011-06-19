@@ -29,9 +29,11 @@ import libnoiseforjava.exception.ExceptionInvalidParam;
 
 public class Invert extends ModuleBase
 {
-   /// Noise module that inverts the output value from a source module.
-   ///
-   /// This noise module requires one source module.
+   /**
+    *  Noise module that inverts the output value from a source module.
+    * 
+    *  This noise module requires one source module.
+    **/
    public Invert (ModuleBase sourceModule) throws ExceptionInvalidParam
    {
       super(1);

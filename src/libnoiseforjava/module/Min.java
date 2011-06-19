@@ -29,12 +29,14 @@ import libnoiseforjava.exception.ExceptionInvalidParam;
 
 public class Min extends ModuleBase
 {
-   /// Noise module that outputs the smaller of the two output values from
-   /// two source modules.
-   ///
-   /// @image html modulemin.png
-   ///
-   /// This noise module requires two source modules.
+   /**
+    *  Noise module that outputs the smaller of the two output values from
+    *  two source modules.
+    * 
+    *  @image html modulemin.png
+    * 
+    *  This noise module requires two source modules.
+    **/
 
    public Min (ModuleBase sourceModuleOne, ModuleBase sourceModuleTwo) throws ExceptionInvalidParam
    {

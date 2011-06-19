@@ -31,53 +31,67 @@ import libnoiseforjava.exception.ExceptionNoModule;
 
 public class Select extends ModuleBase
 {
-   /// Noise module that outputs the value selected from one of two source
-   /// modules chosen by the output value from a control module.
-   ///
-   /// Unlike most other noise modules, the index value assigned to a source
-   /// module determines its role in the selection operation:
-   /// - Source module 0 (upper left in the diagram) outputs a value.
-   /// - Source module 1 (lower left in the diagram) outputs a value.
-   /// - Source module 2 (bottom of the diagram) is known as the <i>control
-   ///   module</i>.  The control module determines the value to select.  If
-   ///   the output value from the control module is within a range of values
-   ///   known as the <i>selection range</i>, this noise module outputs the
-   ///   value from the source module with an index value of 1.  Otherwise,
-   ///   this noise module outputs the value from the source module with an
-   ///   index value of 0.
-   ///
-   /// To specify the bounds of the selection range, call the setBounds()
-   /// method.
-   ///
-   /// An application can pass the control module to the setControlModule()
-   /// method instead of the setSourceModule() method.  This may make the
-   /// application code easier to read.
-   ///
-   /// By default, there is an abrupt transition between the output values
-   /// from the two source modules at the selection-range boundary.  To
-   /// smooth the transition, pass a non-zero value to the setEdgeFalloff()
-   /// method.  Higher values result in a smoother transition.
-   ///
-   /// This noise module requires three source modules.
+   /**
+    *  Noise module that outputs the value selected from one of two source
+    *  modules chosen by the output value from a control module.
+    * 
+    *  Unlike most other noise modules, the index value assigned to a source
+    *  module determines its role in the selection operation:
+    *  - Source module 0 (upper left in the diagram) outputs a value.
+    *  - Source module 1 (lower left in the diagram) outputs a value.
+    *  - Source module 2 (bottom of the diagram) is known as the <i>control
+    *    module</i>.  The control module determines the value to select.  If
+    *    the output value from the control module is within a range of values
+    *    known as the <i>selection range</i>, this noise module outputs the
+    *    value from the source module with an index value of 1.  Otherwise,
+    *    this noise module outputs the value from the source module with an
+    *    index value of 0.
+    * 
+    *  To specify the bounds of the selection range, call the setBounds()
+    *  method.
+    * 
+    *  An application can pass the control module to the setControlModule()
+    *  method instead of the setSourceModule() method.  This may make the
+    *  application code easier to read.
+    * 
+    *  By default, there is an abrupt transition between the output values
+    *  from the two source modules at the selection-range boundary.  To
+    *  smooth the transition, pass a non-zero value to the setEdgeFalloff()
+    *  method.  Higher values result in a smoother transition.
+    * 
+    *  This noise module requires three source modules.
+    **/
 
-   /// Default edge-falloff value for the Select noise module.
+   /**
+    *  Default edge-falloff value for the Select noise module.
+    **/
    static final double DEFAULT_SELECT_EDGE_FALLOFF = 0.0;
 
-   /// Default lower bound of the selection range for the
-   /// Select noise module.
+   /**
+    *  Default lower bound of the selection range for the
+    *  Select noise module.
+    **/
    static final double DEFAULT_SELECT_LOWER_BOUND = -1.0;
 
-   /// Default upper bound of the selection range for the
-   /// Select noise module.
+   /**
+    *  Default upper bound of the selection range for the
+    *  Select noise module.
+    **/
    static final double DEFAULT_SELECT_UPPER_BOUND = 1.0;
 
-   /// Edge-falloff value.
+   /**
+    *  Edge-falloff value.
+    **/
    double edgeFalloff;
 
-   /// Lower bound of the selection range.
+   /**
+    *  Lower bound of the selection range.
+    **/
    double lowerBound;
 
-   /// Upper bound of the selection range.
+   /**
+    *  Upper bound of the selection range.
+    **/
    double upperBound;
 
 
@@ -153,13 +167,15 @@ public class Select extends ModuleBase
       }
    }
 
-   /// Sets the lower and upper bounds of the selection range.
-   ///
-   /// @param lowerBound The lower bound.
-   /// @param upperBound The upper bound.
-   ///
-   /// @pre The lower bound must be less than or equal to the upper
-   /// bound.
+   /**
+    *  Sets the lower and upper bounds of the selection range.
+    * 
+    *  @param lowerBound The lower bound.
+    *  @param upperBound The upper bound.
+    * 
+    *  @pre The lower bound must be less than or equal to the upper
+    *  bound.
+    **/
    public void setBounds (double lowerBound, double upperBound)
    {
       assert (lowerBound < upperBound);
@@ -171,33 +187,35 @@ public class Select extends ModuleBase
       setEdgeFalloff (edgeFalloff);
    }
 
-   /// Sets the falloff value at the edge transition.
-   ///
-   /// @param edgeFalloff The falloff value at the edge transition.
-   ///
-   /// The falloff value is the width of the edge transition at either
-   /// edge of the selection range.
-   ///
-   /// By default, there is an abrupt transition between the values from
-   /// the two source modules at the boundaries of the selection range.
-   ///
-   /// For example, if the selection range is 0.5 to 0.8, and the edge
-   /// falloff value is 0.1, then the getValue() method outputs:
-   /// - the output value from the source module with an index value of 0
-   ///   if the output value from the control module is less than 0.4
-   ///   ( = 0.5 - 0.1).
-   /// - a linear blend between the two output values from the two source
-   ///   modules if the output value from the control module is between
-   ///   0.4 ( = 0.5 - 0.1) and 0.6 ( = 0.5 + 0.1).
-   /// - the output value from the source module with an index value of 1
-   ///   if the output value from the control module is between 0.6
-   ///   ( = 0.5 + 0.1) and 0.7 ( = 0.8 - 0.1).
-   /// - a linear blend between the output values from the two source
-   ///   modules if the output value from the control module is between
-   ///   0.7 ( = 0.8 - 0.1 ) and 0.9 ( = 0.8 + 0.1).
-   /// - the output value from the source module with an index value of 0
-   ///   if the output value from the control module is greater than 0.9
-   ///   ( = 0.8 + 0.1).
+   /**
+    *  Sets the falloff value at the edge transition.
+    * 
+    *  @param edgeFalloff The falloff value at the edge transition.
+    * 
+    *  The falloff value is the width of the edge transition at either
+    *  edge of the selection range.
+    * 
+    *  By default, there is an abrupt transition between the values from
+    *  the two source modules at the boundaries of the selection range.
+    * 
+    *  For example, if the selection range is 0.5 to 0.8, and the edge
+    *  falloff value is 0.1, then the getValue() method outputs:
+    *  - the output value from the source module with an index value of 0
+    *    if the output value from the control module is less than 0.4
+    *    ( = 0.5 - 0.1).
+    *  - a linear blend between the two output values from the two source
+    *    modules if the output value from the control module is between
+    *    0.4 ( = 0.5 - 0.1) and 0.6 ( = 0.5 + 0.1).
+    *  - the output value from the source module with an index value of 1
+    *    if the output value from the control module is between 0.6
+    *    ( = 0.5 + 0.1) and 0.7 ( = 0.8 - 0.1).
+    *  - a linear blend between the output values from the two source
+    *    modules if the output value from the control module is between
+    *    0.7 ( = 0.8 - 0.1 ) and 0.9 ( = 0.8 + 0.1).
+    *  - the output value from the source module with an index value of 0
+    *    if the output value from the control module is greater than 0.9
+    *    ( = 0.8 + 0.1).
+    **/
    public void setEdgeFalloff (double edgeFalloff)
    {
       // Make sure that the edge falloff curves do not overlap.
@@ -205,22 +223,24 @@ public class Select extends ModuleBase
       edgeFalloff = (edgeFalloff > boundSize / 2)? boundSize / 2: edgeFalloff;
    }
 
-   /// Returns the control module.
-   ///
-   /// @returns A reference to the control module.
-   ///
-   /// @pre A control module has been added to this noise module via a
-   /// call to setSourceModule() or setControlModule().
-   ///
-   /// @throw ExceptionNoModule See the preconditions for more
-   /// information.
-   ///
-   /// The control module determines the output value to select.  If the
-   /// output value from the control module is within a range of values
-   /// known as the <i>selection range</i>, the getValue() method outputs
-   /// the value from the source module with an index value of 1.
-   /// Otherwise, this method outputs the value from the source module
-   /// with an index value of 0.
+   /**
+    *  Returns the control module.
+    * 
+    *  @return A reference to the control module.
+    * 
+    *  @pre A control module has been added to this noise module via a
+    *  call to setSourceModule() or setControlModule().
+    * 
+    *  @throw ExceptionNoModule See the preconditions for more
+    *  information.
+    * 
+    *  The control module determines the output value to select.  If the
+    *  output value from the control module is within a range of values
+    *  known as the <i>selection range</i>, the getValue() method outputs
+    *  the value from the source module with an index value of 1.
+    *  Otherwise, this method outputs the value from the source module
+    *  with an index value of 0.
+    **/
 
    // not sure this does what it says it does.  Recheck original source
    public ModuleBase getControlModule () throws ExceptionNoModule
@@ -231,66 +251,74 @@ public class Select extends ModuleBase
       return (sourceModules[2]);
    }
 
-   /// Returns the falloff value at the edge transition.
-   ///
-   /// @returns The falloff value at the edge transition.
-   ///
-   /// The falloff value is the width of the edge transition at either
-   /// edge of the selection range.
-   ///
-   /// By default, there is an abrupt transition between the output
-   /// values from the two source modules at the selection-range
-   /// boundary.
+   /**
+    *  Returns the falloff value at the edge transition.
+    * 
+    *  @return The falloff value at the edge transition.
+    * 
+    *  The falloff value is the width of the edge transition at either
+    *  edge of the selection range.
+    * 
+    *  By default, there is an abrupt transition between the output
+    *  values from the two source modules at the selection-range
+    *  boundary.
+    **/
    public double getEdgeFalloff ()
    {
       return edgeFalloff;
    }
 
-   /// Returns the lower bound of the selection range.
-   ///
-   /// @returns The lower bound of the selection range.
-   ///
-   /// If the output value from the control module is within the
-   /// selection range, the getValue() method outputs the value from the
-   /// source module with an index value of 1.  Otherwise, this method
-   /// outputs the value from the source module with an index value of 0.
+   /**
+    *  Returns the lower bound of the selection range.
+    * 
+    *  @return The lower bound of the selection range.
+    * 
+    *  If the output value from the control module is within the
+    *  selection range, the getValue() method outputs the value from the
+    *  source module with an index value of 1.  Otherwise, this method
+    *  outputs the value from the source module with an index value of 0.
+    **/
    public double getLowerBound ()
    {
       return lowerBound;
    }
 
-   /// Returns the upper bound of the selection range.
-   ///
-   /// @returns The upper bound of the selection range.
-   ///
-   /// If the output value from the control module is within the
-   /// selection range, the getValue() method outputs the value from the
-   /// source module with an index value of 1.  Otherwise, this method
-   /// outputs the value from the source module with an index value of 0.
+   /**
+    *  Returns the upper bound of the selection range.
+    * 
+    *  @return The upper bound of the selection range.
+    * 
+    *  If the output value from the control module is within the
+    *  selection range, the getValue() method outputs the value from the
+    *  source module with an index value of 1.  Otherwise, this method
+    *  outputs the value from the source module with an index value of 0.
+    **/
    public double getUpperBound ()
    {
       return upperBound;
    }
 
-   /// Sets the control module.
-   ///
-   /// @param controlModule The control module.
-   ///
-   /// The control module determines the output value to select.  If the
-   /// output value from the control module is within a range of values
-   /// known as the <i>selection range</i>, the getValue() method outputs
-   /// the value from the source module with an index value of 1.
-   /// Otherwise, this method outputs the value from the source module
-   /// with an index value of 0.
-   ///
-   /// This method assigns the control module an index value of 2.
-   /// Passing the control module to this method produces the same
-   /// results as passing the control module to the setSourceModule()
-   /// method while assigning that noise module an index value of 2.
-   ///
-   /// This control module must exist throughout the lifetime of this
-   /// noise module unless another control module replaces that control
-   /// module.
+   /**
+    *  Sets the control module.
+    * 
+    *  @param controlModule The control module.
+    * 
+    *  The control module determines the output value to select.  If the
+    *  output value from the control module is within a range of values
+    *  known as the <i>selection range</i>, the getValue() method outputs
+    *  the value from the source module with an index value of 1.
+    *  Otherwise, this method outputs the value from the source module
+    *  with an index value of 0.
+    * 
+    *  This method assigns the control module an index value of 2.
+    *  Passing the control module to this method produces the same
+    *  results as passing the control module to the setSourceModule()
+    *  method while assigning that noise module an index value of 2.
+    * 
+    *  This control module must exist throughout the lifetime of this
+    *  noise module unless another control module replaces that control
+    *  module.
+    **/
    public void setControlModule (ModuleBase controlModule)
    {
       assert (sourceModules != null);

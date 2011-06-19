@@ -27,18 +27,22 @@ package libnoiseforjava.module;
 
 public class Const extends ModuleBase
 {
-   /// Noise module that outputs a constant value.
-   ///
-   /// @image html moduleconst.png
-   ///
-   /// To specify the constant value, call the setConstValue() method.
-   ///
-   /// This noise module is not useful by itself, but it is often used as a
-   /// source module for other noise modules.
-   ///
-   /// This noise module does not require any source modules.
+   /**
+    *  Noise module that outputs a constant value.
+    * 
+    *  @image html moduleconst.png
+    * 
+    *  To specify the constant value, call the setConstValue() method.
+    * 
+    *  This noise module is not useful by itself, but it is often used as a
+    *  source module for other noise modules.
+    * 
+    *  This noise module does not require any source modules.
+    **/
 
-   /// Default constant value for the Const noise module.
+   /**
+    *  Default constant value for the Const noise module.
+    **/
    static final double DEFAULT_CONST_VALUE = 0.0;
 
    double constValue;
@@ -54,9 +58,11 @@ public class Const extends ModuleBase
       return constValue;
    }
 
-   /// Sets the constant output value for this noise module.
-   ///
-   /// @param constValue The constant output value for this noise module.
+   /**
+    *  Sets the constant output value for this noise module.
+    * 
+    *  @param constValue The constant output value for this noise module.
+    **/
    public void setConstValue (double constValue)
    {
       this.constValue = constValue;

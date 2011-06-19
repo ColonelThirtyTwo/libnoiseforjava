@@ -29,10 +29,12 @@ import libnoiseforjava.exception.ExceptionInvalidParam;
 
 public class Add extends ModuleBase
 {
-   /// Noise module that outputs the additive value of the output value from
-   /// two source modules.
-   ///
-   /// This noise module requires two source modules.
+   /**
+    *  Noise module that outputs the additive value of the output value from
+    *  two source modules.
+    * 
+    *  This noise module requires two source modules.
+    **/
 
    public Add (ModuleBase sourceModuleOne, ModuleBase sourceModuleTwo) throws ExceptionInvalidParam
    {

@@ -31,26 +31,28 @@ import libnoiseforjava.exception.ExceptionInvalidParam;
 
 public class Curve extends ModuleBase
 {
-   /// Noise module that maps the output value from a source module onto an
-   /// arbitrary function curve.
-   ///
-   /// This noise module maps the output value from the source module onto an
-   /// application-defined curve.  This curve is defined by a number of
-   /// <i>control points</i>; each control point has an <i>input value</i>
-   /// that maps to an <i>output value</i>.
-   ///
-   /// To add the control points to this curve, call the addControlPoint()
-   /// method.  Note that the class ControlPoint follows the class Curve in
-   /// this file.
-   ///
-   /// Since this curve is a cubic spline, an application must add a minimum
-   /// of four control points to the curve.  If this is not done, the
-   /// getValue() method fails.  Each control point can have any input and
-   /// output value, although no two control points can have the same input
-   /// value.  There is no limit to the number of control points that can be
-   /// added to the curve.  
-   ///
-   /// This noise module requires one source module
+   /**
+    *  Noise module that maps the output value from a source module onto an
+    *  arbitrary function curve.
+    * 
+    *  This noise module maps the output value from the source module onto an
+    *  application-defined curve.  This curve is defined by a number of
+    *  <i>control points</i>; each control point has an <i>input value</i>
+    *  that maps to an <i>output value</i>.
+    * 
+    *  To add the control points to this curve, call the addControlPoint()
+    *  method.  Note that the class ControlPoint follows the class Curve in
+    *  this file.
+    * 
+    *  Since this curve is a cubic spline, an application must add a minimum
+    *  of four control points to the curve.  If this is not done, the
+    *  getValue() method fails.  Each control point can have any input and
+    *  output value, although no two control points can have the same input
+    *  value.  There is no limit to the number of control points that can be
+    *  added to the curve.  
+    * 
+    *  This noise module requires one source module
+    **/
 
    int controlPointCount;
    ControlPoint[] controlPoints;
@@ -175,15 +177,21 @@ public class Curve extends ModuleBase
 }
 
 
-/// This class defines a control point.
-///
-/// Control points are used for defining splines.
+/**
+ *  This class defines a control point.
+ * 
+ *  Control points are used for defining splines.
+ **/
 class ControlPoint
 {
-   /// The input value.
+   /**
+    *  The input value.
+    **/
    double inputValue;
 
-   /// The output value that is mapped from the input value.
+   /**
+    *  The output value that is mapped from the input value.
+    **/
    double outputValue;
    
    ControlPoint()

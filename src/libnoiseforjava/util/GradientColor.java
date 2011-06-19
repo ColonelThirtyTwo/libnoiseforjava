@@ -30,35 +30,37 @@ import libnoiseforjava.exception.ExceptionInvalidParam;
 
 public class GradientColor
 {
-   /// Defines a color gradient.
-   ///
-   /// A color gradient is a list of gradually-changing colors.  A color
-   /// gradient is defined by a list of <i>gradient points</i>.  Each
-   /// gradient point has a position and a color.  In a color gradient, the
-   /// colors between two adjacent gradient points are linearly interpolated.
-   ///
-   /// To add a gradient point to the color gradient, pass its position and
-   /// color to the addGradientPoint() method.
-   ///
-   /// To retrieve a color from a specific position in the color gradient,
-   /// pass that position to the getColor() method.
-   ///
-   /// This class is a useful tool for coloring height maps based on
-   /// elevation.
-   ///
-   /// <b>Gradient example</b>
-   ///
-   /// Suppose a gradient object contains the following gradient points:
-   /// - -1.0 maps to black.
-   /// - 0.0 maps to white.
-   /// - 1.0 maps to red.
-   ///
-   /// If an application passes -0.5 to the getColor() method, this method
-   /// will return a gray color that is halfway between black and white.
-   ///
-   /// If an application passes 0.25 to the getColor() method, this method
-   /// will return a very light pink color that is one quarter of the way
-   /// between white and red.
+   /**
+    *  Defines a color gradient.
+    * 
+    *  A color gradient is a list of gradually-changing colors.  A color
+    *  gradient is defined by a list of <i>gradient points</i>.  Each
+    *  gradient point has a position and a color.  In a color gradient, the
+    *  colors between two adjacent gradient points are linearly interpolated.
+    * 
+    *  To add a gradient point to the color gradient, pass its position and
+    *  color to the addGradientPoint() method.
+    * 
+    *  To retrieve a color from a specific position in the color gradient,
+    *  pass that position to the getColor() method.
+    * 
+    *  This class is a useful tool for coloring height maps based on
+    *  elevation.
+    * 
+    *  <b>Gradient example</b>
+    * 
+    *  Suppose a gradient object contains the following gradient points:
+    *  - -1.0 maps to black.
+    *  - 0.0 maps to white.
+    *  - 1.0 maps to red.
+    * 
+    *  If an application passes -0.5 to the getColor() method, this method
+    *  will return a gray color that is halfway between black and white.
+    * 
+    *  If an application passes 0.25 to the getColor() method, this method
+    *  will return a very light pink color that is one quarter of the way
+    *  between white and red.
+    **/
 
 
    GradientPoint [] gradientPoints;  
@@ -71,16 +73,18 @@ public class GradientColor
       gradientPoints[0] =  new GradientPoint(0.0, new ColorCafe(0, 0, 0, 0));
    }
 
-   /// Adds a gradient point to this gradient object.
-   ///
-   /// @param gradientPos The position of this gradient point.
-   /// @param gradientColor The color of this gradient point.
-   ///
-   /// @pre No two gradient points have the same position.
-   ///
-   /// @throw noise::ExceptionInvalidParam See the precondition.
-   ///
-   /// It does not matter which order these gradient points are added.
+   /**
+    *  Adds a gradient point to this gradient object.
+    * 
+    *  @param gradientPos The position of this gradient point.
+    *  @param gradientColor The color of this gradient point.
+    * 
+    *  @pre No two gradient points have the same position.
+    * 
+    *  @throw noise::ExceptionInvalidParam See the precondition.
+    * 
+    *  It does not matter which order these gradient points are added.
+    **/
    public void addGradientPoint (double gradientPos, ColorCafe gradientColor) throws ExceptionInvalidParam
    {
       // Find the insertion point for the new gradient point and insert the new
@@ -90,30 +94,34 @@ public class GradientColor
       insertAtPos (insertionPos, gradientPos, gradientColor);
    }
 
-   /// Deletes all the gradient points from this gradient object.
-   ///
-   /// @post All gradient points from this gradient object are deleted.
+   /**
+    *  Deletes all the gradient points from this gradient object.
+    * 
+    *  @post All gradient points from this gradient object are deleted.
+    **/
    public void clear ()
    {
       gradientPoints = null;
       gradientPointCount = 0;
    }
 
-   /// Determines the array index in which to insert the gradient point
-   /// into the internal gradient-point array.
-   ///
-   /// @param gradientPos The position of this gradient point.
-   ///
-   /// @returns The array index in which to insert the gradient point.
-   ///
-   /// @pre No two gradient points have the same input value.
-   ///
-   /// @throw noise::ExceptionInvalidParam See the precondition.
-   ///
-   /// By inserting the gradient point at the returned array index, this
-   /// object ensures that the gradient-point array is sorted by input
-   /// value.  The code that maps a value to a color requires a sorted
-   /// gradient-point array.
+   /**
+    *  Determines the array index in which to insert the gradient point
+    *  into the internal gradient-point array.
+    * 
+    *  @param gradientPos The position of this gradient point.
+    * 
+    *  @return The array index in which to insert the gradient point.
+    * 
+    *  @pre No two gradient points have the same input value.
+    * 
+    *  @throw noise::ExceptionInvalidParam See the precondition.
+    * 
+    *  By inserting the gradient point at the returned array index, this
+    *  object ensures that the gradient-point array is sorted by input
+    *  value.  The code that maps a value to a color requires a sorted
+    *  gradient-point array.
+    **/
    public int findInsertionPos (double gradientPos) throws ExceptionInvalidParam
    {
       int insertionPos;
@@ -132,11 +140,13 @@ public class GradientColor
       return insertionPos;
    }
    
-   /// Returns the color at the specified position in the color gradient.
-   ///
-   /// @param gradientPos The specified position.
-   ///
-   /// @returns The color at that position.
+   /**
+    *  Returns the color at the specified position in the color gradient.
+    * 
+    *  @param gradientPos The specified position.
+    * 
+    *  @return The color at that position.
+    **/
    public ColorCafe getColor (double gradientPos)
    {
       assert (gradientPointCount >= 2);
@@ -178,21 +188,23 @@ public class GradientColor
       return workingColor;
    }
 
-   /// Inserts the gradient point at the specified position in the
-   /// internal gradient-point array.
-   ///
-   /// @param insertionPos The zero-based array position in which to
-   /// insert the gradient point.
-   /// @param gradientPos The position of this gradient point.
-   /// @param gradientColor The color of this gradient point.
-   ///
-   /// To make room for this new gradient point, this method reallocates
-   /// the gradient-point array and shifts all gradient points occurring
-   /// after the insertion position up by one.
-   ///
-   /// Because this object requires that all gradient points in the array
-   /// must be sorted by the position, the new gradient point should be
-   /// inserted at the position in which the order is still preserved.
+   /**
+    *  Inserts the gradient point at the specified position in the
+    *  internal gradient-point array.
+    * 
+    *  @param insertionPos The zero-based array position in which to
+    *  insert the gradient point.
+    *  @param gradientPos The position of this gradient point.
+    *  @param gradientColor The color of this gradient point.
+    * 
+    *  To make room for this new gradient point, this method reallocates
+    *  the gradient-point array and shifts all gradient points occurring
+    *  after the insertion position up by one.
+    * 
+    *  Because this object requires that all gradient points in the array
+    *  must be sorted by the position, the new gradient point should be
+    *  inserted at the position in which the order is still preserved.
+    **/
    public void insertAtPos (int insertionPos, double gradientPos,
          ColorCafe gradientColor)
    {
@@ -225,24 +237,28 @@ public class GradientColor
       gradientPoints[insertionPos].color = gradientColor;
    }
 
-   /// Returns a pointer to the array of gradient points in this object.
-   ///
-   /// @returns A pointer to the array of gradient points.
-   ///
-   /// Before calling this method, call getGradientPointCount() to
-   /// determine the number of gradient points in this array.
-   ///
-   /// It is recommended that an application does not store this pointer
-   /// for later use since the pointer to the array may change if the
-   /// application calls another method of this object.
+   /**
+    *  Returns a pointer to the array of gradient points in this object.
+    * 
+    *  @return A pointer to the array of gradient points.
+    * 
+    *  Before calling this method, call getGradientPointCount() to
+    *  determine the number of gradient points in this array.
+    * 
+    *  It is recommended that an application does not store this pointer
+    *  for later use since the pointer to the array may change if the
+    *  application calls another method of this object.
+    **/
    public GradientPoint[] getGradientPointArray ()
    {
       return gradientPoints;
    }
 
-   /// Returns the number of gradient points stored in this object.
-   ///
-   /// @returns The number of gradient points stored in this object.
+   /**
+    *  Returns the number of gradient points stored in this object.
+    * 
+    *  @return The number of gradient points stored in this object.
+    **/
    public int getGradientPointCount ()
    {
       return gradientPointCount;

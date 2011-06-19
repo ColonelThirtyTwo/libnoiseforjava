@@ -30,40 +30,50 @@ import libnoiseforjava.exception.ExceptionInvalidParam;
 public class ImageCafe
 {
 
-   /// Implements an image, a 2-dimensional array of color values.
-   ///
-   /// An image can be used to store a color texture.
-   ///
-   /// These color values are of type ColorCafe.
-   ///
-   /// The size (width and height) of the image can be specified during
-   /// object construction.
-   ///
-   /// The getValue() and setValue() methods can be used to access individual
-   /// color values stored in the image.
-   ///
-   ///
-   /// <b>Border Values</b>
-   ///
-   /// All of the color values outside of the image are assumed to have a
-   /// common color value known as the <i>border value</i>.
-   ///
-   /// To set the border value, call the setBorderValue() method.
-   ///
-   /// The getValue() method returns the border value if the specified
-   /// position lies outside of the image.
-   ///
+   /**
+    *  Implements an image, a 2-dimensional array of color values.
+    * 
+    *  An image can be used to store a color texture.
+    * 
+    *  These color values are of type ColorCafe.
+    * 
+    *  The size (width and height) of the image can be specified during
+    *  object construction.
+    * 
+    *  The getValue() and setValue() methods can be used to access individual
+    *  color values stored in the image.
+    * 
+    * 
+    *  <b>Border Values</b>
+    * 
+    *  All of the color values outside of the image are assumed to have a
+    *  common color value known as the <i>border value</i>.
+    * 
+    *  To set the border value, call the setBorderValue() method.
+    * 
+    *  The getValue() method returns the border value if the specified
+    *  position lies outside of the image.
+    * 
+    **/
 
-   /// The Color value used for all positions outside of the image.
+   /**
+    *  The Color value used for all positions outside of the image.
+    **/
    ColorCafe borderValue;
 
-   /// The current height of the image.
+   /**
+    *  The current height of the image.
+    **/
    int height;
 
-   /// The current width of the image.
+   /**
+    *  The current width of the image.
+    **/
    int width;
 
-   /// Array of ColorCafes holding the color values
+   /**
+    *  Array of ColorCafes holding the color values
+    **/
    ColorCafe [][] imageCafeColors;
 
    public ImageCafe (int width, int height) throws ExceptionInvalidParam
@@ -73,15 +83,17 @@ public class ImageCafe
       imageCafeColors = new ColorCafe[width][height];
    }
 
-   /// Returns a color value from the specified position in the image.
-   ///
-   /// @param x The x coordinate of the position.
-   /// @param y The y coordinate of the position.
-   ///
-   /// @returns The color value at that position.
-   ///
-   /// This method returns the border value if the coordinates exist
-   /// outside of the image.
+   /**
+    *  Returns a color value from the specified position in the image.
+    * 
+    *  @param x The x coordinate of the position.
+    *  @param y The y coordinate of the position.
+    * 
+    *  @return The color value at that position.
+    * 
+    *  This method returns the border value if the coordinates exist
+    *  outside of the image.
+    **/
    public ColorCafe getValue (int x, int y)
    {
       if (x >= 0 && x < width && y >= 0 && y < height)
@@ -92,16 +104,18 @@ public class ImageCafe
          return borderValue;
    }
 
-   /// Sets the new size for the image.
-   ///
-   /// @param width The new width for the image.
-   /// @param height The new height for the image.
-   ///
-   /// @pre The width and height values are positive.
-   /// @pre The width and height values do not exceed the maximum
-   /// possible width and height for the image.
-   ///
-   /// @throw ExceptionInvalidParam See the preconditions.
+   /**
+    *  Sets the new size for the image.
+    * 
+    *  @param width The new width for the image.
+    *  @param height The new height for the image.
+    * 
+    *  @pre The width and height values are positive.
+    *  @pre The width and height values do not exceed the maximum
+    *  possible width and height for the image.
+    * 
+    *  @throw ExceptionInvalidParam See the preconditions.
+    **/
    public void setSize (int width, int height) throws ExceptionInvalidParam
    {
       if (width < 0 || height < 0)
@@ -114,14 +128,16 @@ public class ImageCafe
       }
    }
 
-   /// Sets a color value at a specified position in the image.
-   ///
-   /// @param x The x coordinate of the position.
-   /// @param y The y coordinate of the position.
-   /// @param value The color value to set at the given position.
-   ///
-   /// This method does nothing if the image is empty or the position is
-   /// outside the bounds of the image.
+   /**
+    *  Sets a color value at a specified position in the image.
+    * 
+    *  @param x The x coordinate of the position.
+    *  @param y The y coordinate of the position.
+    *  @param value The color value to set at the given position.
+    * 
+    *  This method does nothing if the image is empty or the position is
+    *  outside the bounds of the image.
+    **/
    public void setValue (int x, int y, ColorCafe value)
    {
       if (x >= 0 && x < width && y >= 0 && y < height)
@@ -129,43 +145,51 @@ public class ImageCafe
    }
 
 
-   /// Returns the color value used for all positions outside of the
-   /// image.
-   ///
-   /// @returns The color value used for all positions outside of the
-   /// image.
-   ///
-   /// All positions outside of the image are assumed to have a common
-   /// color value known as the <i>border value</i>.
+   /**
+    *  Returns the color value used for all positions outside of the
+    *  image.
+    * 
+    *  @return The color value used for all positions outside of the
+    *  image.
+    * 
+    *  All positions outside of the image are assumed to have a common
+    *  color value known as the <i>border value</i>.
+    **/
    public ColorCafe getBorderValue ()
    {
       return borderValue;
    }
 
-   /// Returns the height of the image.
-   ///
-   /// @returns The height of the image.
+   /**
+    *  Returns the height of the image.
+    * 
+    *  @return The height of the image.
+    **/
    public int getHeight ()
    {
       return height;
    }
 
-   /// Returns the width of the image.
-   ///
-   /// @returns The width of the image.
+   /**
+    *  Returns the width of the image.
+    * 
+    *  @return The width of the image.
+    **/
    public int getWidth ()
    {
       return width;
    }
 
-   /// Sets the color value to use for all positions outside of the
-   /// image.
-   ///
-   /// @param borderValue The color value to use for all positions
-   /// outside of the image.
-   ///
-   /// All positions outside of the image are assumed to have a common
-   /// color value known as the <i>border value</i>.
+   /**
+    *  Sets the color value to use for all positions outside of the
+    *  image.
+    * 
+    *  @param borderValue The color value to use for all positions
+    *  outside of the image.
+    * 
+    *  All positions outside of the image are assumed to have a common
+    *  color value known as the <i>border value</i>.
+    **/
    public void setBorderValue (ColorCafe borderValue)
    {
       this.borderValue = borderValue;

@@ -28,33 +28,39 @@ package libnoiseforjava.module;
 public class Spheres extends ModuleBase
 {
 
-   /// Noise module that outputs concentric spheres.
-   ///
-   /// This noise module outputs concentric spheres centered on the origin
-   /// like the concentric rings of an onion.
-   ///
-   /// The first sphere has a radius of 1.0.  Each subsequent sphere has a
-   /// radius that is 1.0 unit larger than the previous sphere.
-   ///
-   /// The output value from this noise module is determined by the distance
-   /// between the input value and the the nearest spherical surface.  The
-   /// input values that are located on a spherical surface are given the
-   /// output value 1.0 and the input values that are equidistant from two
-   /// spherical surfaces are given the output value -1.0.
-   ///
-   /// An application can change the frequency of the concentric spheres.
-   /// Increasing the frequency reduces the distances between spheres.  To
-   /// specify the frequency, call the setFrequency() method.
-   ///
-   /// This noise module, modified with some low-frequency, low-power
-   /// turbulence, is useful for generating agate-like textures.
-   ///
-   /// This noise module does not require any source modules.
+   /**
+    *  Noise module that outputs concentric spheres.
+    * 
+    *  This noise module outputs concentric spheres centered on the origin
+    *  like the concentric rings of an onion.
+    * 
+    *  The first sphere has a radius of 1.0.  Each subsequent sphere has a
+    *  radius that is 1.0 unit larger than the previous sphere.
+    * 
+    *  The output value from this noise module is determined by the distance
+    *  between the input value and the the nearest spherical surface.  The
+    *  input values that are located on a spherical surface are given the
+    *  output value 1.0 and the input values that are equidistant from two
+    *  spherical surfaces are given the output value -1.0.
+    * 
+    *  An application can change the frequency of the concentric spheres.
+    *  Increasing the frequency reduces the distances between spheres.  To
+    *  specify the frequency, call the setFrequency() method.
+    * 
+    *  This noise module, modified with some low-frequency, low-power
+    *  turbulence, is useful for generating agate-like textures.
+    * 
+    *  This noise module does not require any source modules.
+    **/
 
-   /// Default frequency value for the Spheres noise module.
+   /**
+    *  Default frequency value for the Spheres noise module.
+    **/
    static final double DEFAULT_SPHERES_FREQUENCY = 1.0;
 
-   /// Frequency of the concentric spheres.
+   /**
+    *  Frequency of the concentric spheres.
+    **/
    double frequency;
 
 
@@ -77,23 +83,27 @@ public class Spheres extends ModuleBase
       return 1.0 - (nearestDist * 4.0); // Puts it in the -1.0 to +1.0 range.
    }
 
-   /// Returns the frequency of the concentric spheres.
-   ///
-   /// @returns The frequency of the concentric spheres.
-   ///
-   /// Increasing the frequency increases the density of the concentric
-   /// spheres, reducing the distances between them.
+   /**
+    *  Returns the frequency of the concentric spheres.
+    * 
+    *  @return The frequency of the concentric spheres.
+    * 
+    *  Increasing the frequency increases the density of the concentric
+    *  spheres, reducing the distances between them.
+    **/
    public double getFrequency ()
    {
       return frequency;
    }
 
-   /// Sets the frequency of the concentric spheres.
-   ///
-   /// @param frequency The frequency of the concentric spheres.
-   ///
-   /// Increasing the frequency increases the density of the concentric
-   /// spheres, reducing the distances between them.
+   /**
+    *  Sets the frequency of the concentric spheres.
+    * 
+    *  @param frequency The frequency of the concentric spheres.
+    * 
+    *  Increasing the frequency increases the density of the concentric
+    *  spheres, reducing the distances between them.
+    **/
    public void setFrequency (double frequency)
    {
       this.frequency = frequency;

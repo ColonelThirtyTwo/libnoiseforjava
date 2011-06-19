@@ -31,34 +31,46 @@ import libnoiseforjava.model.Plane;
 
 public class NoiseMapBuilderPlane extends NoiseMapBuilder
 {
-   /// Builds a planar noise map.
-   ///
-   /// This class builds a noise map by filling it with coherent-noise values
-   /// generated from the surface of a plane.
-   ///
-   /// This class describes these input values using (x, z) coordinates.
-   /// Their y coordinates are always 0.0.
-   ///
-   /// The application must provide the lower and upper x coordinate bounds
-   /// of the noise map, in units, and the lower and upper z coordinate
-   /// bounds of the noise map, in units.
-   ///
-   /// To make a tileable noise map with no seams at the edges, call the
-   /// enableSeamless() method.
+   /**
+    *  Builds a planar noise map.
+    * 
+    *  This class builds a noise map by filling it with coherent-noise values
+    *  generated from the surface of a plane.
+    * 
+    *  This class describes these input values using (x, z) coordinates.
+    *  Their y coordinates are always 0.0.
+    * 
+    *  The application must provide the lower and upper x coordinate bounds
+    *  of the noise map, in units, and the lower and upper z coordinate
+    *  bounds of the noise map, in units.
+    * 
+    *  To make a tileable noise map with no seams at the edges, call the
+    *  enableSeamless() method.
+    **/
 
-   /// A flag specifying whether seamless tiling is enabled.
+   /**
+    *  A flag specifying whether seamless tiling is enabled.
+    **/
    boolean isSeamlessEnabled;
 
-   /// Lower x boundary of the planar noise map, in units.
+   /**
+    *  Lower x boundary of the planar noise map, in units.
+    **/
    double lowerXBound;
 
-   /// Lower z boundary of the planar noise map, in units.
+   /**
+    *  Lower z boundary of the planar noise map, in units.
+    **/
    double lowerZBound;
 
-   /// Upper x boundary of the planar noise map, in units.
+   /**
+    *  Upper x boundary of the planar noise map, in units.
+    **/
    double upperXBound;
 
-   /// Upper z boundary of the planar noise map, in units.
+   /**
+    *  Upper z boundary of the planar noise map, in units.
+    **/
    double upperZBound;
 
 
@@ -139,77 +151,91 @@ public class NoiseMapBuilderPlane extends NoiseMapBuilder
       }
    }
 
-   /// Enables or disables seamless tiling.
-   ///
-   /// @param enable A flag that enables or disables seamless tiling.
-   ///
-   /// Enabling seamless tiling builds a noise map with no seams at the
-   /// edges.  This allows the noise map to be tileable.
+   /**
+    *  Enables or disables seamless tiling.
+    * 
+    *  @param enable A flag that enables or disables seamless tiling.
+    * 
+    *  Enabling seamless tiling builds a noise map with no seams at the
+    *  edges.  This allows the noise map to be tileable.
+    **/
    public void enableSeamless (boolean enable)
    {
       isSeamlessEnabled = enable;
    }
 
-   /// Returns the lower x boundary of the planar noise map.
-   ///
-   /// @returns The lower x boundary of the planar noise map, in units.
+   /**
+    *  Returns the lower x boundary of the planar noise map.
+    * 
+    *  @return The lower x boundary of the planar noise map, in units.
+    **/
    public double getLowerXBound ()
    {
       return lowerXBound;
    }
 
-   /// Returns the lower z boundary of the planar noise map.
-   ///
-   /// @returns The lower z boundary of the noise map, in units.
+   /**
+    *  Returns the lower z boundary of the planar noise map.
+    * 
+    *  @return The lower z boundary of the noise map, in units.
+    **/
    public double getLowerZBound ()
    {
       return lowerZBound;
    }
 
-   /// Returns the upper x boundary of the planar noise map.
-   ///
-   /// @returns The upper x boundary of the noise map, in units.
+   /**
+    *  Returns the upper x boundary of the planar noise map.
+    * 
+    *  @return The upper x boundary of the noise map, in units.
+    **/
    public double getUpperXBound ()
    {
       return upperXBound;
    }
 
-   /// Returns the upper z boundary of the planar noise map.
-   ///
-   /// @returns The upper z boundary of the noise map, in units.
+   /**
+    *  Returns the upper z boundary of the planar noise map.
+    * 
+    *  @return The upper z boundary of the noise map, in units.
+    **/
    public double getUpperZBound ()
    {
       return upperZBound;
    }
 
-   /// Determines if seamless tiling is enabled.
-   ///
-   /// @returns
-   /// - @a true if seamless tiling is enabled.
-   /// - @a false if seamless tiling is disabled.
-   ///
-   /// Enabling seamless tiling builds a noise map with no seams at the
-   /// edges.  This allows the noise map to be tileable.
+   /**
+    *  Determines if seamless tiling is enabled.
+    * 
+    *  @return
+    *  - @a true if seamless tiling is enabled.
+    *  - @a false if seamless tiling is disabled.
+    * 
+    *  Enabling seamless tiling builds a noise map with no seams at the
+    *  edges.  This allows the noise map to be tileable.
+    **/
    public boolean isSeamlessEnabled ()
    {
       return isSeamlessEnabled;
    }
 
-   /// Sets the boundaries of the planar noise map.
-   ///
-   /// @param lowerXBound The lower x boundary of the noise map, in
-   /// units.
-   /// @param upperXBound The upper x boundary of the noise map, in
-   /// units.
-   /// @param lowerZBound The lower z boundary of the noise map, in
-   /// units.
-   /// @param upperZBound The upper z boundary of the noise map, in
-   /// units.
-   ///
-   /// @pre The lower x boundary is less than the upper x boundary.
-   /// @pre The lower z boundary is less than the upper z boundary.
-   ///
-   /// @throw ExceptionInvalidParam See the preconditions.
+   /**
+    *  Sets the boundaries of the planar noise map.
+    * 
+    *  @param lowerXBound The lower x boundary of the noise map, in
+    *  units.
+    *  @param upperXBound The upper x boundary of the noise map, in
+    *  units.
+    *  @param lowerZBound The lower z boundary of the noise map, in
+    *  units.
+    *  @param upperZBound The upper z boundary of the noise map, in
+    *  units.
+    * 
+    *  @pre The lower x boundary is less than the upper x boundary.
+    *  @pre The lower z boundary is less than the upper z boundary.
+    * 
+    *  @throw ExceptionInvalidParam See the preconditions.
+    **/
    public void setBounds (double lowerXBound, double upperXBound,
          double lowerZBound, double upperZBound) throws ExceptionInvalidParam
    {

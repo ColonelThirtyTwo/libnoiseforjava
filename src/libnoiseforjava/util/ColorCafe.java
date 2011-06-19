@@ -27,33 +27,45 @@ package libnoiseforjava.util;
 
 public class ColorCafe
 {
-   /// Defines a color.
-   ///
-   /// A color object contains four 8-bit channels: red, green, blue, and an
-   /// alpha (transparency) channel.  Channel values range from 0 to 255.
-   ///
-   /// The alpha channel defines the transparency of the color.  If the alpha
-   /// channel has a value of 0, the color is completely transparent.  If the
-   /// alpha channel has a value of 255, the color is completely opaque.
+   /**
+    *  Defines a color.
+    * 
+    *  A color object contains four 8-bit channels: red, green, blue, and an
+    *  alpha (transparency) channel.  Channel values range from 0 to 255.
+    * 
+    *  The alpha channel defines the transparency of the color.  If the alpha
+    *  channel has a value of 0, the color is completely transparent.  If the
+    *  alpha channel has a value of 255, the color is completely opaque.
+    **/
  
-   /// Value of the alpha (transparency) channel.
+   /**
+    *  Value of the alpha (transparency) channel.
+    **/
    int alpha;
 
-   /// Value of the blue channel.
+   /**
+    *  Value of the blue channel.
+    **/
    int blue;
 
-   /// Value of the green channel.
+   /**
+    *  Value of the green channel.
+    **/
    int green;
 
-   /// Value of the red channel.
+   /**
+    *  Value of the red channel.
+    **/
    int red;
    
-   /// Constructor.
-   ///
-   /// @param r Value of the red channel.
-   /// @param g Value of the green channel.
-   /// @param b Value of the blue channel.
-   /// @param a Value of the alpha (transparency) channel.
+   /**
+    *  Constructor.
+    * 
+    *  @param r Value of the red channel.
+    *  @param g Value of the green channel.
+    *  @param b Value of the blue channel.
+    *  @param a Value of the alpha (transparency) channel.
+    **/
    public ColorCafe (int red, int green, int blue, int alpha)
    {
       this.red = red;

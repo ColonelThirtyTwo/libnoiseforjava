@@ -30,35 +30,45 @@ import libnoiseforjava.model.Sphere;
 
 public class NoiseMapBuilderSphere extends NoiseMapBuilder
 {
-   /// Builds a spherical noise map.
-   ///
-   /// This class builds a noise map by filling it with coherent-noise values
-   /// generated from the surface of a sphere.
-   ///
-   /// This class describes these input values using a (latitude, longitude)
-   /// coordinate system.  After generating the coherent-noise value from the
-   /// input value, it then "flattens" these coordinates onto a plane so that
-   /// it can write the values into a two-dimensional noise map.
-   ///
-   /// The sphere model has a radius of 1.0 unit.  Its center is at the
-   /// origin.
-   ///
-   /// The x coordinate in the noise map represents the longitude.  The y
-   /// coordinate in the noise map represents the latitude.  
-   ///
-   /// The application must provide the southern, northern, western, and
-   /// eastern bounds of the noise map, in degrees.
+   /**
+    *  Builds a spherical noise map.
+    * 
+    *  This class builds a noise map by filling it with coherent-noise values
+    *  generated from the surface of a sphere.
+    * 
+    *  This class describes these input values using a (latitude, longitude)
+    *  coordinate system.  After generating the coherent-noise value from the
+    *  input value, it then "flattens" these coordinates onto a plane so that
+    *  it can write the values into a two-dimensional noise map.
+    * 
+    *  The sphere model has a radius of 1.0 unit.  Its center is at the
+    *  origin.
+    * 
+    *  The x coordinate in the noise map represents the longitude.  The y
+    *  coordinate in the noise map represents the latitude.  
+    * 
+    *  The application must provide the southern, northern, western, and
+    *  eastern bounds of the noise map, in degrees.
+    **/
 
-   /// Eastern boundary of the spherical noise map, in degrees.
+   /**
+    *  Eastern boundary of the spherical noise map, in degrees.
+    **/
    double eastLonBound;
 
-   /// Northern boundary of the spherical noise map, in degrees.
+   /**
+    *  Northern boundary of the spherical noise map, in degrees.
+    **/
    double northLatBound;
 
-   /// Southern boundary of the spherical noise map, in degrees.
+   /**
+    *  Southern boundary of the spherical noise map, in degrees.
+    **/
    double southLatBound;
 
-   /// Western boundary of the spherical noise map, in degrees.
+   /**
+    *  Western boundary of the spherical noise map, in degrees.
+    **/
    double westLonBound;
 
    public NoiseMapBuilderSphere () throws ExceptionInvalidParam
@@ -112,53 +122,63 @@ public class NoiseMapBuilderSphere extends NoiseMapBuilder
       }
    }
 
-   /// Returns the eastern boundary of the spherical noise map.
-   ///
-   /// @returns The eastern boundary of the noise map, in degrees.
+   /**
+    *  Returns the eastern boundary of the spherical noise map.
+    * 
+    *  @return The eastern boundary of the noise map, in degrees.
+    **/
    public double getEastLonBound ()
    {
       return eastLonBound;
    }
 
-   /// Returns the northern boundary of the spherical noise map
-   ///
-   /// @returns The northern boundary of the noise map, in degrees.
+   /**
+    *  Returns the northern boundary of the spherical noise map
+    * 
+    *  @return The northern boundary of the noise map, in degrees.
+    **/
    public double getNorthLatBound ()
    {
       return northLatBound;
    }
 
-   /// Returns the southern boundary of the spherical noise map
-   ///
-   /// @returns The southern boundary of the noise map, in degrees.
+   /**
+    *  Returns the southern boundary of the spherical noise map
+    * 
+    *  @return The southern boundary of the noise map, in degrees.
+    **/
    public double getSouthLatBound ()
    {
       return southLatBound;
    }
 
-   /// Returns the western boundary of the spherical noise map
-   ///
-   /// @returns The western boundary of the noise map, in degrees.
+   /**
+    *  Returns the western boundary of the spherical noise map
+    * 
+    *  @return The western boundary of the noise map, in degrees.
+    **/
    public double getWestLonBound ()
    {
       return westLonBound;
    }
 
-   /// Sets the coordinate boundaries of the noise map.
-   ///
-   /// @param southLatBound The southern boundary of the noise map, in
-   /// degrees.
-   /// @param northLatBound The northern boundary of the noise map, in
-   /// degrees.
-   /// @param westLonBound The western boundary of the noise map, in
-   /// degrees.
-   /// @param eastLonBound The eastern boundary of the noise map, in
-   /// degrees.
-   ///
-   /// @pre The southern boundary is less than the northern boundary.
-   /// @pre The western boundary is less than the eastern boundary.
-   ///
-   /// @throw noise::ExceptionInvalidParam See the preconditions.
+   /**
+    *  Sets the coordinate boundaries of the noise map.
+    * 
+    *  @param southLatBound The southern boundary of the noise map, in
+    *  degrees.
+    *  @param northLatBound The northern boundary of the noise map, in
+    *  degrees.
+    *  @param westLonBound The western boundary of the noise map, in
+    *  degrees.
+    *  @param eastLonBound The eastern boundary of the noise map, in
+    *  degrees.
+    * 
+    *  @pre The southern boundary is less than the northern boundary.
+    *  @pre The western boundary is less than the eastern boundary.
+    * 
+    *  @throw noise::ExceptionInvalidParam See the preconditions.
+    **/
    public void setBounds (double southLatBound, double northLatBound,
          double westLonBound, double eastLonBound) throws ExceptionInvalidParam
    {

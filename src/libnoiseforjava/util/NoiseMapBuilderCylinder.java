@@ -31,38 +31,48 @@ import libnoiseforjava.model.Cylinder;
 public class NoiseMapBuilderCylinder extends NoiseMapBuilder
 {
 
-   /// Builds a cylindrical noise map.
-   ///
-   /// This class builds a noise map by filling it with coherent-noise values
-   /// generated from the surface of a cylinder.
-   ///
-   /// This class describes these input values using an (angle, height)
-   /// coordinate system.  After generating the coherent-noise value from the
-   /// input value, it then "flattens" these coordinates onto a plane so that
-   /// it can write the values into a two-dimensional noise map.
-   ///
-   /// The cylinder model has a radius of 1.0 unit and has infinite height.
-   /// The cylinder is oriented along the @a y axis.  Its center is at the
-   /// origin.
-   ///
-   /// The x coordinate in the noise map represents the angle around the
-   /// cylinder's y axis.  The y coordinate in the noise map represents the
-   /// height above the x-z plane.
-   ///
-   /// The application must provide the lower and upper angle bounds of the
-   /// noise map, in degrees, and the lower and upper height bounds of the
-   /// noise map, in units.
+   /**
+    *  Builds a cylindrical noise map.
+    * 
+    *  This class builds a noise map by filling it with coherent-noise values
+    *  generated from the surface of a cylinder.
+    * 
+    *  This class describes these input values using an (angle, height)
+    *  coordinate system.  After generating the coherent-noise value from the
+    *  input value, it then "flattens" these coordinates onto a plane so that
+    *  it can write the values into a two-dimensional noise map.
+    * 
+    *  The cylinder model has a radius of 1.0 unit and has infinite height.
+    *  The cylinder is oriented along the @a y axis.  Its center is at the
+    *  origin.
+    * 
+    *  The x coordinate in the noise map represents the angle around the
+    *  cylinder's y axis.  The y coordinate in the noise map represents the
+    *  height above the x-z plane.
+    * 
+    *  The application must provide the lower and upper angle bounds of the
+    *  noise map, in degrees, and the lower and upper height bounds of the
+    *  noise map, in units.
+    **/
 
-   /// Lower angle boundary of the cylindrical noise map, in degrees.
+   /**
+    *  Lower angle boundary of the cylindrical noise map, in degrees.
+    **/
    double lowerAngleBound;
 
-   /// Lower height boundary of the cylindrical noise map, in units.
+   /**
+    *  Lower height boundary of the cylindrical noise map, in units.
+    **/
    double lowerHeightBound;
 
-   /// Upper angle boundary of the cylindrical noise map, in degrees.
+   /**
+    *  Upper angle boundary of the cylindrical noise map, in degrees.
+    **/
    double upperAngleBound;
 
-   /// Upper height boundary of the cylindrical noise map, in units.
+   /**
+    *  Upper height boundary of the cylindrical noise map, in units.
+    **/
    double upperHeightBound;
 
 
@@ -117,61 +127,71 @@ public class NoiseMapBuilderCylinder extends NoiseMapBuilder
       }
    }
 
-   /// Returns the lower angle boundary of the cylindrical noise map.
-   ///
-   /// @returns The lower angle boundary of the noise map, in degrees.
+   /**
+    *  Returns the lower angle boundary of the cylindrical noise map.
+    * 
+    *  @return The lower angle boundary of the noise map, in degrees.
+    **/
    public double getLowerAngleBound ()
    {
       return lowerAngleBound;
    }
 
-   /// Returns the lower height boundary of the cylindrical noise map.
-   ///
-   /// @returns The lower height boundary of the noise map, in units.
-   ///
-   /// One unit is equal to the radius of the cylinder.
+   /**
+    *  Returns the lower height boundary of the cylindrical noise map.
+    * 
+    *  @return The lower height boundary of the noise map, in units.
+    * 
+    *  One unit is equal to the radius of the cylinder.
+    **/
    public double getLowerHeightBound ()
    {
       return lowerHeightBound;
    }
 
-   /// Returns the upper angle boundary of the cylindrical noise map.
-   ///
-   /// @returns The upper angle boundary of the noise map, in degrees.
+   /**
+    *  Returns the upper angle boundary of the cylindrical noise map.
+    * 
+    *  @return The upper angle boundary of the noise map, in degrees.
+    **/
    public double GetUpperAngleBound ()
    {
       return upperAngleBound;
    }
 
-   /// Returns the upper height boundary of the cylindrical noise map.
-   ///
-   /// @returns The upper height boundary of the noise map, in units.
-   ///
-   /// One unit is equal to the radius of the cylinder.
+   /**
+    *  Returns the upper height boundary of the cylindrical noise map.
+    * 
+    *  @return The upper height boundary of the noise map, in units.
+    * 
+    *  One unit is equal to the radius of the cylinder.
+    **/
    public double getUpperHeightBound ()
    {
       return upperHeightBound;
    }
 
-   /// Sets the coordinate boundaries of the noise map.
-   ///
-   /// @param lowerAngleBound The lower angle boundary of the noise map,
-   /// in degrees.
-   /// @param upperAngleBound The upper angle boundary of the noise map,
-   /// in degrees.
-   /// @param lowerHeightBound The lower height boundary of the noise
-   /// map, in units.
-   /// @param upperHeightBound The upper height boundary of the noise
-   /// map, in units.
-   ///
-   /// @pre The lower angle boundary is less than the upper angle
-   /// boundary.
-   /// @pre The lower height boundary is less than the upper height
-   /// boundary.
-   ///
-   /// @throw noise::ExceptionInvalidParam See the preconditions.
-   ///
-   /// One unit is equal to the radius of the cylinder.
+   /**
+    *  Sets the coordinate boundaries of the noise map.
+    * 
+    *  @param lowerAngleBound The lower angle boundary of the noise map,
+    *  in degrees.
+    *  @param upperAngleBound The upper angle boundary of the noise map,
+    *  in degrees.
+    *  @param lowerHeightBound The lower height boundary of the noise
+    *  map, in units.
+    *  @param upperHeightBound The upper height boundary of the noise
+    *  map, in units.
+    * 
+    *  @pre The lower angle boundary is less than the upper angle
+    *  boundary.
+    *  @pre The lower height boundary is less than the upper height
+    *  boundary.
+    * 
+    *  @throw noise::ExceptionInvalidParam See the preconditions.
+    * 
+    *  One unit is equal to the radius of the cylinder.
+    **/
    public void setBounds (double lowerAngleBound, double upperAngleBound,
          double lowerHeightBound, double upperHeightBound) throws ExceptionInvalidParam
    {
