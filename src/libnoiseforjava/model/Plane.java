@@ -50,7 +50,7 @@ public class Plane
 
    public Plane ()
    {
-      module = new ModuleBase(1);
+      module = null;
    }
       
    public Plane (ModuleBase module)

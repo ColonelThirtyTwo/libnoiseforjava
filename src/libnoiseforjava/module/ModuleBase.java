@@ -28,34 +28,25 @@ package libnoiseforjava.module;
 import libnoiseforjava.exception.ExceptionInvalidParam;
 import libnoiseforjava.exception.ExceptionNoModule;
 
-public class ModuleBase
+public abstract class ModuleBase
 {
 
    // base class for noise modules.
    public ModuleBase[] sourceModules;
-   public int modulesRequired;
 
-   public ModuleBase()
+   protected ModuleBase()
    {
-      modulesRequired = 0;   
+	   this(0);
    }
 
-   public ModuleBase (int modulesRequired)
+   protected ModuleBase (int modulesRequired)
    {
       // Create an array of pointers to all source modules required by this
       // noise module.  Set these pointers to null.
       if(modulesRequired>0)
-      {
          sourceModules = new ModuleBase[modulesRequired];
-         for (int i = 0; i < modulesRequired; i++)
-         {
-            sourceModules[i] = new ModuleBase();
-         }
-      }
       else
          sourceModules = null;
-
-      this.modulesRequired = modulesRequired;
    }
 
    /// Returns a reference to a source module connected to this noise
@@ -100,7 +91,7 @@ public class ModuleBase
    /// module.
    public int getSourceModuleCount()
    {
-      return modulesRequired;
+      return sourceModules.length;
    }
 
    /// Generates an output value given the coordinates of the specified
@@ -122,10 +113,7 @@ public class ModuleBase
    ///
    /// To determine the number of source modules required by this noise
    /// module, call the getSourceModuleCount() method.
-   public double getValue (double x, double y, double z)
-   {
-      return x;
-   }
+   public abstract double getValue (double x, double y, double z);
 
    /// Connects a source module to this noise module.
    ///

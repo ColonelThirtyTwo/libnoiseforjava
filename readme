@@ -1,0 +1,7 @@
+LibNoise For Java: Colonel Thirty Two's Modifications
+
+Some cleanups to the libnoiseforjava project, including:
+
+- VectorTable no longer allocated every sample
+- ExceptionInvalidParam now extends IllegalArgumentException
+- ExceptionNoModule now extends IllegalStateException

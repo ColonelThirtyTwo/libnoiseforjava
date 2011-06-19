@@ -52,7 +52,7 @@ public class Sphere
 
    public Sphere()
    {
-      module = new ModuleBase(1);
+      module = null;
    }
     
    Sphere(ModuleBase module)

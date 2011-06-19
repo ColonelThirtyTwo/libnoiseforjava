@@ -52,7 +52,7 @@ public class Cylinder
 
    public Cylinder ()
    {
-      module = new ModuleBase(1);
+      module = null;
    }
 
    Cylinder (ModuleBase module)

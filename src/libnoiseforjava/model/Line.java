@@ -73,7 +73,7 @@ public class Line
    Line ()
    {
       attenuate = true;
-      module = new ModuleBase(1);
+      module = null;
       x0 = 0.0;
       x1 = 1.0;
       y0 = 0.0;
